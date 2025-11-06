@@ -1,0 +1,43 @@
+version: "3"
+services:
+  db01:
+    image: myapp-db-w6:v1
+    container_name: db01
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+
+  mc01:
+    image: memcached
+    container_name: mc01
+    ports:
+      - "11211:11211"
+
+  rmq01:
+    container_name: rmq01
+    image: rabbitmq
+    ports:
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=test
+      - RABBITMQ_DEFAULT_PASS=test
+
+  app01:
+    container_name: app01
+    image: myapp-w6:v1
+    ports:
+      - "8080:8080"
+    volumes: 
+      - appdata:/usr/local/tomcat/webapps
+
+  web01:
+    container_name: web01
+    image: myapp-lb-w6:v1
+    ports:
+      - "80:80"
+volumes:
+  dbdata:
+  appdata:

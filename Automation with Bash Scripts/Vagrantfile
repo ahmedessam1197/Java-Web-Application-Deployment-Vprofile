@@ -1,0 +1,56 @@
+Vagrant.configure("2") do |config|
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  
+  # Database VM
+  config.vm.define "dataBase01" do |dataBase01|
+    dataBase01.vm.box = "eurolinux-vagrant/centos-stream-9"
+    dataBase01.vm.hostname = "dataBase01"
+    dataBase01.vm.network "private_network", ip: "192.168.10.15"
+    dataBase01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+  end
+
+  # Memcache VM
+  config.vm.define "memcache01" do |memcache01|
+    memcache01.vm.box = "eurolinux-vagrant/centos-stream-9"
+    memcache01.vm.hostname = "memcache01"
+    memcache01.vm.network "private_network", ip: "192.168.10.14"
+    memcache01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+  end
+
+  # RabbitMQ VM
+  config.vm.define "rabbitMQ01" do |rabbitMQ01|
+    rabbitMQ01.vm.box = "eurolinux-vagrant/centos-stream-9"
+    rabbitMQ01.vm.hostname = "rabbitMQ01"
+    rabbitMQ01.vm.network "private_network", ip: "192.168.10.13"
+    rabbitMQ01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+  end
+
+  # Tomcat VM
+  config.vm.define "app01" do |app01|
+    app01.vm.box = "eurolinux-vagrant/centos-stream-9"
+    app01.vm.hostname = "app01"
+    app01.vm.network "private_network", ip: "192.168.10.12"
+    app01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+  end
+
+  # Nginx VM 
+  config.vm.define "web01" do |web01|
+    web01.vm.box = "ubuntu/jammy64"
+    web01.vm.hostname = "web01"
+    web01.vm.network "private_network", ip: "192.168.10.11"
+    web01.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 2
+    end
+  end
+
+end
