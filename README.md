@@ -1,7 +1,15 @@
 # Java Web Application Deployment Vprofile with Vagrant, Nagios, Docker, and Kubernetes
 Java Web Application Deployment Vprofile
 
-This project demonstrates how to deploy a Java-based web application across multiple virtual machines (VMs) using Vagrant. It includes manual setup, automation using Bash scripts, health monitoring with Nagios, containerization using Docker, and orchestration using Kubernetes. The goal is to showcase DevOps skills by creating a scalable, monitored, containerized, and orchestrated deployment.
+Deployed a Java web application across 5 local virtual machines using Vagrant, automating provisioning with Bash scripts.
+
+Reduced manual deployment effort by automating infrastructure provisioning and release processes.
+
+Containerized the application using Docker and orchestrated it with Kubernetes for scalability and fault tolerance.
+
+Designed and built a CI/CD pipeline using Jenkins to automate build, testing, and deployment processes.
+
+Implemented system health monitoring using Nagios to track uptime and service availability.
 
 # Purpose
 To practice and demonstrate DevOps concepts, including deployment automation, system health monitoring, containerization, and orchestration, in a simulated multi-VM environment.
